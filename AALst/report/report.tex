@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{listings}
+\usepackage{booktabs}
+
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\textwidth 160mm
+\textheight 200mm
+
+\pagestyle {plain}
+\pagenumbering{arabic}
+
+\newcounter{stepnum}
+
+\title{Assignment 2 Solution}
+\author{Yujing Chen, cheny48}
+\date{\today}
+
+\begin {document}
+
+\maketitle
+
+Report for Assignment 2
+
+\section{Testing of the Original Program}
+
+% results of testing your files along with the rational for test case selection
+% the number of passed and failed test cases, and brief details on any failed test cases.
+At least one case is used for each function. pytest is used for testing.
+For each function, it has at least one test for normal case and one test for exception. For some function,
+there are tests towards the boundary case. For example, in allocate(), besides exception case, case that one department is full is also tested. 
+Initializing is also tested to see if the set is correctly initialized.
+My program pass 31/31 of the test. In the first round of testing, SALst.average() has failed because of the error comes from double comparing in python.
+
+\section{Results of Testing Partner's Code}
+
+%The results of testing your files combined with your partner’s files.
+My partner's code passed  27 out of 31 test cases. This is because he used List structure and i used Set structure in DCapALst and SALst, so the constructor testing and the testing involve finding a certain element in the list fail, as i used String as key in my test and he need integers or slices. Except this, all the other function pass the test. 
+
+\section{Discussion of the test results}
+%Discussion of the test results and what you learned doing the exercise
+My program didn't use NamedTuple, and my partner didn't use Set structure in DCapALst and SALst. However, when it come to test, both our code still can pass most of the testing case, except the one need specific data structure. So when writing a test file for code, we should pay attention to those involve data structure, and if possible, avoid it to make the test file more flexible. 
+
+\section{Critique of Given Design Specification}
+
+% Advantages and disadvantages of the given design specification.
+Using specification to represent basically everything could make the code more consistent, it also makes the code easier to modify in the future. I like the idea that separate program into DCap list, Student list and Associated list. This make the program clearer. But as we broke the code into so many module, the probability of error also increases. I doesn't like the design that GenT and DeptT is initialized in StdntAllocTypes. Because we already have data set, and those type is repeated. It may be better if we keep those type empty in StdntAllocTypes, and initialize it later in the program. In that way, those two types could become more flexible. Also, this specification makes many assumption about the input. Those assumption should also be implemented into the program as checking.
+
+\section{Answers}
+
+\begin{enumerate}
+
+\item The formal instructions is more accurate, more efficient if the expected reader can understand it. It  also make the code more consistent, it also makes the code easier to modify in the future. However, it can also be very confusing if the programmer doesn't understand it. The natural language is easier to be understood, and it provide programmer more flexibility to implement the program. But it is less convenient to be documented, and could cause misunderstanding between the client and the programmer.
+
+\item We can add a gpa checking in the function get-gpa(). If the gpa is not between 0 and 12, we might throw an exception. In this case, we can keep all the old type in our specification and do not need to add a new ADT.
+
+\item We could document the similar function of SALst and DCapLst together in another part in the specification Then in SALst and DCapLst own part we extend from the similar function part, so we only need to document their own specific function, and could avoid duplicate of the similar function.
+
+\item A2 uses ADT instead of predefined data structures, therefore,  it can run with different data structure as long as you use the same ADT.  In this case, A2 is more general than A1.
+
+\item Using SeqADT allowing we use same function on different data structure as long as the structure is developed from SeqADT.  Therefore, it would be easier to manage the code. Also, using SeqADT would improves generality, it makes reusing of the code in other modules more possible.
+
+\item Using enums makes access in the keys and values easier, and as enums use integer as key would allow operation like addition and multiplication on it, and also enums make iteration of the list easier. However, macid should not use enmus, as there are too many different macid, and those macid is inputed from the file and we don't know what are them in advance, also we would not know their index in advance. So using enmus would not help as find a certain macid, but would make it more difficult for us.
+
+\end{enumerate}
+
+\newpage
+
+\lstset{language=Python, basicstyle=\tiny, breaklines=true, showspaces=false,
+  showstringspaces=false, breakatwhitespace=true}
+%\lstset{language=C,linewidth=.94\textwidth,xleftmargin=1.1cm}
+
+\def\thesection{\Alph{section}}
+
+\section{Code for StdntAllocTypes.py}
+
+\noindent \lstinputlisting{../src/StdntAllocTypes.py}
+
+\newpage
+
+\section{Code for SeqADT.py}
+
+\noindent \lstinputlisting{../src/SeqADT.py}
+
+\newpage
+
+\section{Code for DCapALst.py}
+
+\noindent \lstinputlisting{../src/DCapALst.py}
+
+\newpage
+
+\section{Code for AALst.py}
+
+\noindent \lstinputlisting{../src/AALst.py}
+
+\newpage
+
+\section{Code for SALst.py}
+
+\noindent \lstinputlisting{../src/SALst.py}
+
+\newpage
+
+\section{Code for Read.py}
+
+\noindent \lstinputlisting{../src/Read.py}
+
+\newpage
+
+\section{Code for Partner's SeqADT.py}
+
+\noindent \lstinputlisting{../partner/SeqADT.py}
+
+\newpage
+
+\section{Code for Partner's DCapALst.py}
+
+\noindent \lstinputlisting{../partner/DCapALst.py}
+
+\newpage
+
+\section{Code for Partner's SALst.py}
+
+\noindent \lstinputlisting{../partner/SALst.py}
+
+\end {document}

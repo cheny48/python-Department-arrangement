@@ -1,0 +1,9 @@
+ufw30, XmShX, RrePF, male, 4.21, ["civil","mechanical","materials","chemical"], False
+b5vqg, BJddy, PUtHu, male, 5.06, ["civil","software","engphys"], False
+15vmp, ByqnL, wkAVT, female, 7.48, ["chemical","civil","engphys"], True
+gjbrd, yeksU, TnBwz, male, 5.97, ["mechanical","electrical","civil"], True
+nqtfv, xbhrg, wrrpj, female, 1.2, ["software","engphys","materials"], False
+9zsun, KAXdV, jDMzn, male, 12.32, ["electrical","civil"], True
+k6loe, UfCtg, Yarti, male, 7.49, ["materials","engphys","materials"], False
+pguru, VSWpk, tFcjo, female, 1.6, ["software","software","civil"], True
+24ut9, ozXez, PLbzr, female, 9.36, ["civil","engphys","chemical"], True
